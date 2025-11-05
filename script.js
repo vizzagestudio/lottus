@@ -161,3 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// trocar /index por /home na URL
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.pathname.endsWith('/index.html')) {
+    window.history.replaceState({}, '', '/home');
+  }
+});
+
