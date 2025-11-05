@@ -138,4 +138,19 @@ function initBannerSlider() {
 document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu(); // Sempre executa (em todas as páginas)
     initBannerSlider(); // Só executa se existir banner na página
+
+});
+
+// esconder o .html na barra de endereço
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href.endsWith('.html')) {
+        e.preventDefault();
+        window.history.pushState({}, '', href.replace('.html', ''));
+        window.location.href = href; // ainda abre a página normal
+      }
+    });
+  });
 });
