@@ -165,7 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // trocar /index por /home na URL
 document.addEventListener('DOMContentLoaded', () => {
   if (window.location.pathname.endsWith('/index.html')) {
-    window.history.replaceState({}, '', '/home');
+    const newUrl = window.location.href.replace('/index.html', '/home');
+    window.history.replaceState({}, '', newUrl);
   }
 });
+
 
