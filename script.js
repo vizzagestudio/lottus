@@ -141,33 +141,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-// esconder o .html da barra de endereço (em todas as páginas)
-document.addEventListener('DOMContentLoaded', () => {
-  // remove o .html da URL ao carregar a página
-  if (window.location.pathname.endsWith('.html')) {
-    const cleanPath = window.location.pathname.replace('.html', '');
-    window.history.replaceState({}, '', cleanPath);
-  }
-
-  // intercepta cliques nos links e troca URL antes de carregar
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      const href = link.getAttribute('href');
-      if (href.endsWith('.html')) {
-        e.preventDefault();
-        window.history.pushState({}, '', href.replace('.html', ''));
-        window.location.href = href;
-      }
-    });
-  });
-});
-
-// trocar /index por /home na URL
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname.endsWith('/index.html')) {
-    const newUrl = window.location.href.replace('/index.html', '/home');
-    window.history.replaceState({}, '', newUrl);
-  }
-});
-
-
