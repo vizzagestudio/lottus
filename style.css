@@ -1296,4 +1296,30 @@ SERVICOS
   .servico-conteudo h2 {
     font-size: 1.6rem;
   }
+
+}
+
+
+/* Seletor de idioma */
+.lang-switch a {
+  position: relative;
+  padding-bottom: 4px;
+  font-weight: 600;
+}
+
+/* linha vermelha igual ao menu */
+.lang-switch a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #A62531;
+  transition: width 0.3s ease;
+}
+
+/* hover */
+.lang-switch a:hover::after {
+  width: 100%;
 }
